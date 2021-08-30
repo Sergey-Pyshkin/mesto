@@ -1,5 +1,5 @@
 .places__button{
-  background-image: url("/images/button-disable.svg");
+  background-image: url("../../../images/button-disable.svg");
   background-size: cover;
   margin-top: 5px;
   margin-right: 5px;
