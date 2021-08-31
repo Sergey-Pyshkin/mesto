@@ -29,14 +29,3 @@ form.addEventListener('submit',
 
 openPopupButton.addEventListener('click', OpenPopup);
 closePopupButton.addEventListener('click', OpenPopup);
-
-
-/*function togglePopup() {
-  if (!popup.classList.contains('popup_opened')) {
-    namePopup.value = nameProfile.textContent;
-    jobPopup.value = jobProfile.textContent;
-  }
-  popup.classList.toggle('popup_opened');
-}*/
-
-
