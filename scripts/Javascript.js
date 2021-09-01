@@ -3,8 +3,8 @@ let closePopupButton = document.querySelector('.popup__close');
 let popup = document.querySelector('.popup');
 let nameProfile = document.querySelector('.profile__title');
 let jobProfile = document.querySelector('.profile__subtitle');
-let namePopup = document.querySelectorAll('.popup__input')[0];
-let jobPopup = document.querySelectorAll('.popup__input')[1];
+let namePopup = document.querySelector('#name');
+let jobPopup = document.querySelector('#job');
 let form = document.querySelector('.popup__form');
 
 function OpenPopup() {
