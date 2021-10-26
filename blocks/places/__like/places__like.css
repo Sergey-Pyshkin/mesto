@@ -1,5 +1,5 @@
-.places__button{
-  background-image: url("../../../images/button-disable.svg");
+.places__like{
+  background-image: url("../../../images/like-disable.svg");
   background-size: cover;
   margin-top: 5px;
   margin-right: 5px;
@@ -11,7 +11,7 @@
   transition: opacity .2s linear .2s;
 }
 
-.places__button:hover{
+.places__like:hover{
   opacity: 0.5;
   cursor: pointer;
 }
