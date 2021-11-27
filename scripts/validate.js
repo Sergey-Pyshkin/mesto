@@ -17,9 +17,14 @@ function setFormListeners(form, config) {
 
 function setSubmitButtonState (form, config){
   const button = form.querySelector(config.submitButtonSelector);
-  button.disabled = !form.checkValidity();
-  button.classList.toggle(config.inactiveButtonClass, !form.checkValidity());
+  if (form.checkValidity()){
+    button.disabled = false;
+    button.classList.toggle(config.inactiveButtonClass, false);
+  } else {
+    button.disabled = true;
+    button.classList.toggle(config.inactiveButtonClass, true);
 }
+};
 
 function resetError(form, config){
   const inputs = [...form.querySelectorAll(config.inputSelector)];
