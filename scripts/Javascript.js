@@ -14,6 +14,18 @@ const namePlace = document.querySelector('#addName');
 const placeImg = document.querySelector('#addLink');
 const caseElement = document.querySelector('.places');
 const cardTemplate = document.querySelector('#card-template').content;
+const popups = document.querySelectorAll('.popup');
+
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_disabled',
+  inputErrorClass: 'popup__error',
+  errorClass: 'popup__input_type_error'
+};
+
+enableValidation(config);
 
 const initialCards = [
   {
@@ -62,6 +74,8 @@ const popupBigPic = (data) =>{
   openPopup(popupOpenImage);
 };
 
+
+
 function createCard(data){
   const cardElement = cardTemplate.querySelector('.places__figure').cloneNode(true);
   const placesImage = cardElement.querySelector('.places__image');
@@ -94,13 +108,33 @@ const cardsFormHandler = (event) => {
   closePopup(addPopup);
 };
 
+function keyHandler(evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(openedPopup);
+  }
+};
+
+function clickClose (event) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (event.target.classList.contains('popup')){
+    closePopup(openedPopup);
+  };
+};
+
 function openPopup(popup){
 	popup.classList.add('popup_opened');
+  setSubmitButtonState(editForm, config);
+  setSubmitButtonState(addForm, config);
+  resetError(editForm, config);
+  resetError(addForm, config);
+  document.addEventListener('keydown', keyHandler);
 };
 
 function closePopup(popup){
 	popup.classList.remove('popup_opened');
-};
+  document.removeEventListener('keydown', keyHandler);
+ };
 
 
 
@@ -112,8 +146,6 @@ editForm.addEventListener('submit',
     closePopup(editPopup);
   }
 );
-
-
 
 openEditPopupButton.addEventListener('click', () => {
   namePopup.value = nameProfile.textContent;
@@ -130,5 +162,13 @@ addForm.addEventListener('submit', cardsFormHandler);
 popupOpenImageCloseButton.addEventListener('click', () => closePopup(popupOpenImage));
 
 window.addEventListener('load', () => {
-  document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'))
-})
+  popups.forEach((popup) => popup.classList.add('popup_transition'))
+});
+
+popups.forEach(popups => popups.addEventListener('click', clickClose));
+
+
+
+
+
+

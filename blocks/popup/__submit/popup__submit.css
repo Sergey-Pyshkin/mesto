@@ -1,6 +1,7 @@
 .popup__submit{
+  box-sizing: border-box;
   width: 100%;
-  margin: 18px 0 37px;
+  margin: 5px 0 37px;
   color: white;
   background-color: #000000;
   border-radius: 2px;

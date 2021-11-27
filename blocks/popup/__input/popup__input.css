@@ -11,10 +11,11 @@
   white-space: nowrap;
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 28px;
+  margin-bottom: 5px;
   padding: 0 0 10px 0;
   outline: 0;
-}
+  color: black;
+ }
 
 .popup__input::-webkit-input-placeholder{
   font-family: inherit;
